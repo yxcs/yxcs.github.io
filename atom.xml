@@ -45,6 +45,33 @@
   </entry>
   
   <entry>
+    <title>houduan</title>
+    <link href="http://yoursite.com/2018/09/08/houduan/"/>
+    <id>http://yoursite.com/2018/09/08/houduan/</id>
+    <published>2018-09-08T10:40:58.000Z</published>
+    <updated>2018-09-08T10:47:04.999Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'test'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2018/09/08/hello-world/"/>
     <id>http://yoursite.com/2018/09/08/hello-world/</id>
