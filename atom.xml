@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-08T10:43:49.380Z</updated>
+  <updated>2018-09-10T04:39:31.787Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,20 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>tools</title>
-    <link href="http://yoursite.com/2018/09/08/tools/"/>
-    <id>http://yoursite.com/2018/09/08/tools/</id>
+    <title>vscode前端常用插件推荐</title>
+    <link href="http://yoursite.com/2018/09/08/vscode-plugins/"/>
+    <id>http://yoursite.com/2018/09/08/vscode-plugins/</id>
     <published>2018-09-08T10:43:16.000Z</published>
-    <updated>2018-09-08T10:43:49.380Z</updated>
+    <updated>2018-09-10T04:39:31.787Z</updated>
     
-    <content type="html"><![CDATA[<p>测试</p>]]></content>
+    <content type="html"><![CDATA[<p>vscode是微软开发的的一款代码编辑器，就如官网上说的一样，vscode重新定义（redefined）了代码编辑器。当前市面上常用的轻型代码编辑器主要是：sublime，notepad++，editplus，atom这几种。比起notepad++、editplus，vscode集成了许多IDE才具有的功能，比起它们更像一个代码编辑器；比起sublime，vscode颜值更高，安装配置插件更为方便；比起atom，vscode启动速度更快，打开各种大文件不卡。可以说，vscode既拥有高自由度、又拥有高性能和高颜值，最关键的是，vscode还是一款免费并且有团队持续快速更新的代码编辑器。可以说，vscode是代码编辑器的首选。个人推荐编写前端代码时，代码编辑器选择vscode，IDE选择WebStorm。</p><ol><li>Auto Close Tag　　　<br>自动闭合HTML/XML标签</li><li>Auto Rename Tag<br>自动完成另一侧标签的同步修改</li><li><p>Beautify<br>格式化代码，值得注意的是，beautify插件支持自定义格式化代码规则，例如：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"indent_size"</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="attr">"indent_char"</span>: <span class="string">" "</span>,</span><br><span class="line">  <span class="attr">"css"</span>: &#123;</span><br><span class="line">    <span class="attr">"indent_size"</span>: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>Bracket Pair Colorizer<br>给括号加上不同的颜色，便于区分不同的区块，使用者可以定义不同括号类型和不同颜色</p></li><li>Debugger for Chrome<br>映射vscode上的断点到chrome上，方便调试</li><li>HTML CSS Support<br>智能提示CSS类名以及id</li><li>HTML Snippets<br>智能提示HTML标签，以及标签含义</li><li>JavaScript(ES6) code snippets<br>ES6语法智能提示，以及快速输入，不仅仅支持.js，还支持.ts，.jsx，.tsx，.html，.vue，省去了配置其支持各种包含js代码文件的时间</li><li>jQuery Code Snippets<br>jQuery代码智能提示</li><li>Markdown Preview Enhanced<br>实时预览markdown，markdown使用者必备</li><li>markdownlint<br>markdown语法纠错</li><li>open in browser</li><li>Path Intellisense<br>自动提示文件路径，支持各种快速引入文件</li><li>React/Redux/react-router Snippets<br>　React/Redux/react-router语法智能提示</li><li>Vetur<br>Vue多功能集成插件，包括：语法高亮，智能提示，emmet，错误提示，格式化，自动补全，debugger。vscode官方钦定Vue插件，Vue开发者必备</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;测试&lt;/p&gt;
-
+        &lt;p&gt;vscode是微软开发的的一款代码编辑器，就如官网上说的一样，vscode重新定义（redefined）了代码编辑器。当前市面上常用的轻型代码编辑器主要是：sublime，notepad++，editplus，atom这几种。比起notepad++、editplus，vsc
       
     
     </summary>
@@ -38,26 +37,27 @@
       <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="tools" scheme="http://yoursite.com/tags/tools/"/>
+      <category term="vscode" scheme="http://yoursite.com/tags/vscode/"/>
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
     
   </entry>
   
   <entry>
-    <title>houduan</title>
-    <link href="http://yoursite.com/2018/09/08/houduan/"/>
-    <id>http://yoursite.com/2018/09/08/houduan/</id>
+    <title>nodejs搭建web服务器</title>
+    <link href="http://yoursite.com/2018/09/08/node-server-build/"/>
+    <id>http://yoursite.com/2018/09/08/node-server-build/</id>
     <published>2018-09-08T10:40:58.000Z</published>
-    <updated>2018-09-08T10:47:04.999Z</updated>
+    <updated>2018-09-10T04:22:14.636Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'test'</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效</p><pre><code class="javascript"><span class="comment">//引入http模块</span><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);<span class="comment">//设置主机名</span><span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;<span class="comment">//设置端口</span><span class="keyword">var</span> port = <span class="number">8080</span>;<span class="comment">//创建服务</span><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{    res.setHeader(<span class="string">'Content-Type'</span>,<span class="string">'text/plain'</span>);    res.end(<span class="string">"hello nodejs"</span>);});server.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{    <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);});</code></pre><p>Express 中跨域解决</p><pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);<span class="keyword">var</span> app = express();<span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;<span class="keyword">var</span> port = <span class="number">8080</span>;app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{      res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);      res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Origin, X-Requested-With, Content-Type, Accept"</span>);      res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);      res.header(<span class="string">"X-Powered-By"</span>,<span class="string">' 3.2.1'</span>)      res.header(<span class="string">"Content-Type"</span>, <span class="string">"application/json;charset=utf-8"</span>);      next();  });app.get(<span class="string">"/get"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{    <span class="built_in">console</span>.log(<span class="string">"请求url："</span>,req.path)    <span class="built_in">console</span>.log(<span class="string">"请求参数："</span>,req.query)    res.send(<span class="string">"这是get请求"</span>);})app.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{   <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);});</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class
+        &lt;p&gt;Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;commen
       
     
     </summary>
@@ -65,9 +65,9 @@
       <category term="后端" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="express" scheme="http://yoursite.com/tags/express/"/>
     
   </entry>
   
@@ -76,7 +76,7 @@
     <link href="http://yoursite.com/2018/09/08/hello-world/"/>
     <id>http://yoursite.com/2018/09/08/hello-world/</id>
     <published>2018-09-08T07:30:59.098Z</published>
-    <updated>2018-09-08T09:35:26.449Z</updated>
+    <updated>2018-09-10T04:25:11.113Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     

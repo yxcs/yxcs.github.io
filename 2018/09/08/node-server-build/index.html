@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>tools | yxc`s home</title>
+<title>nodejs搭建web服务器 | yxc`s home</title>
 
 
     <link rel="alternate" href="/atom.xml" title="yxc`s home" type="application/atom+xml">
@@ -132,9 +132,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="tools">
+        <h1 id="nodejs搭建web服务器">
             
-	            tools
+	            nodejs搭建web服务器
             
         </h1>
         <div class="post-meta">
@@ -142,8 +142,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/工具">
-            工具
+        <a href="/categories/后端">
+            后端
         </a>
     </span>
     
@@ -153,12 +153,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/tools" title='tools'>
-                        tools
+                    <a href="/tags/node" title='node'>
+                        node
                     </a>
                 
-                    <a href="/tags/test" title='test'>
-                        test
+                    <a href="/tags/express" title='express'>
+                        express
                     </a>
                 
             
@@ -180,14 +180,54 @@
     </div>
     
     <div class="post-body post-content">
-        <p>测试</p>
+        <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效</p>
+<pre><code class="javascript"><span class="comment">//引入http模块</span>
+<span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
+<span class="comment">//设置主机名</span>
+<span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;
+<span class="comment">//设置端口</span>
+<span class="keyword">var</span> port = <span class="number">8080</span>;
+<span class="comment">//创建服务</span>
+<span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{
+    res.setHeader(<span class="string">'Content-Type'</span>,<span class="string">'text/plain'</span>);
+    res.end(<span class="string">"hello nodejs"</span>);
+});
+server.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);
+});
+</code></pre>
+<p>Express 中跨域解决</p>
+<pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);
+<span class="keyword">var</span> app = express();
+<span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;
+<span class="keyword">var</span> port = <span class="number">8080</span>;
+
+app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{  
+    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);  
+    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Origin, X-Requested-With, Content-Type, Accept"</span>);  
+    res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);  
+    res.header(<span class="string">"X-Powered-By"</span>,<span class="string">' 3.2.1'</span>)  
+    res.header(<span class="string">"Content-Type"</span>, <span class="string">"application/json;charset=utf-8"</span>);  
+    next();  
+});
+
+app.get(<span class="string">"/get"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{
+    <span class="built_in">console</span>.log(<span class="string">"请求url："</span>,req.path)
+    <span class="built_in">console</span>.log(<span class="string">"请求参数："</span>,req.query)
+    res.send(<span class="string">"这是get请求"</span>);
+})
+
+app.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+   <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);
+});
+</code></pre>
 
     </div>
 
     <div class="post-footer">
         <div>
             
-                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+                转载声明：转载请联系作者获得授权 © <a href="" target="_blank">yxcs | 于晓超</a>
             
         </div>
         <div>
@@ -198,10 +238,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
+        <a href="/2018/09/08/vscode-plugins/" class="pre-post btn btn-default" title='vscode前端常用插件推荐'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">vscode前端常用插件推荐</span>
+        </a>
     
-        <a href="/2018/09/08/houduan/" class="next-post btn btn-default" title='houduan'>
+    
+        <a href="/2018/09/08/hello-world/" class="next-post btn btn-default" title='Hello World'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">houduan</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Hello World</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
