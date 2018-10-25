@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>nodejs搭建web服务器 | yxc`s home</title>
+<title>Hello World | yxc`s home</title>
 
 
     <link rel="alternate" href="/atom.xml" title="yxc`s home" type="application/atom+xml">
@@ -136,9 +136,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="nodejs搭建web服务器">
+        <h1 id="Hello World">
             
-	            nodejs搭建web服务器
+	            Hello World
             
         </h1>
         <div class="post-meta">
@@ -146,8 +146,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/后端">
-            后端
+        <a href="/categories/前端">
+            前端
         </a>
     </span>
     
@@ -157,12 +157,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/node" title='node'>
-                        node
+                    <a href="/tags/hexo" title='hexo'>
+                        hexo
                     </a>
                 
-                    <a href="/tags/express" title='express'>
-                        express
+                    <a href="/tags/js" title='js'>
+                        js
                     </a>
                 
             
@@ -174,7 +174,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/09/08</span>
+            <span class="date-meta">2018/10/09</span>
         </span>
     
 </div>
@@ -184,47 +184,15 @@
     </div>
     
     <div class="post-body post-content">
-        <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效</p>
-<pre><code class="javascript"><span class="comment">//引入http模块</span>
-<span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);
-<span class="comment">//设置主机名</span>
-<span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;
-<span class="comment">//设置端口</span>
-<span class="keyword">var</span> port = <span class="number">8080</span>;
-<span class="comment">//创建服务</span>
-<span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{
-    res.setHeader(<span class="string">'Content-Type'</span>,<span class="string">'text/plain'</span>);
-    res.end(<span class="string">"hello nodejs"</span>);
-});
-server.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-    <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);
-});
-</code></pre>
-<p>Express 中跨域解决</p>
-<pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);
-<span class="keyword">var</span> app = express();
-<span class="keyword">var</span> hostName = <span class="string">'127.0.0.1'</span>;
-<span class="keyword">var</span> port = <span class="number">8080</span>;
-
-app.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{  
-    res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);  
-    res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Origin, X-Requested-With, Content-Type, Accept"</span>);  
-    res.header(<span class="string">"Access-Control-Allow-Methods"</span>,<span class="string">"PUT,POST,GET,DELETE,OPTIONS"</span>);  
-    res.header(<span class="string">"X-Powered-By"</span>,<span class="string">' 3.2.1'</span>)  
-    res.header(<span class="string">"Content-Type"</span>, <span class="string">"application/json;charset=utf-8"</span>);  
-    next();  
-});
-
-app.get(<span class="string">"/get"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>{
-    <span class="built_in">console</span>.log(<span class="string">"请求url："</span>,req.path)
-    <span class="built_in">console</span>.log(<span class="string">"请求参数："</span>,req.query)
-    res.send(<span class="string">"这是get请求"</span>);
-})
-
-app.listen(port,hostName,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-   <span class="built_in">console</span>.log(<span class="string">`服务器运行在http://<span class="subst">${hostName}</span>:<span class="subst">${port}</span>`</span>);
-});
-</code></pre>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
     </div>
 
@@ -242,11 +210,11 @@ app.listen(port,hostName,<span class="function"><span class="keyword">function</
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/09/08/vscode-plugins/" class="pre-post btn btn-default" title='vscode前端常用插件推荐'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">vscode前端常用插件推荐</span>
-        </a>
     
+        <a href="/2018/09/21/promise-generator-async-解析/" class="next-post btn btn-default" title='promise generator async 解析'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">promise generator async 解析</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
     
 </div>
 
@@ -288,7 +256,7 @@ app.listen(port,hostName,<span class="function"><span class="keyword">function</
     <div class="widget">
         <h3 class="title">内容列表</h3>
         
-            <p>暂无目录</p>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
         
     </div>
 </aside>
