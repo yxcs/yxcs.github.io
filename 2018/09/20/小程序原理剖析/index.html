@@ -236,7 +236,7 @@
 <li>绕过 setData、数据通信和重渲染流程，使渲染性能更好</li>
 </ol>
 <h3 id="小程序的双线程"><a href="#小程序的双线程" class="headerlink" title="小程序的双线程"></a>小程序的双线程</h3><p>虽然解决了以上问题，但是 <strong>管控性和安全性</strong>还没有解决，那么如何解决那 ？<br>于是，双线程的设计被提出来了。  </p>
-<p><img src="http://p2amrgvlp.bkt.clouddn.com/miniprograme_process.png" alt="微信官方双线程示意图"></p>
+<p><img src="http://www.jsenjoy.com/images/blog/miniprograme_process.png" alt="微信官方双线程示意图"></p>
 <p>小程序的渲染层和逻辑层分别由 2 个线程管理：渲染层的界面使用了 WebView 进行渲染，逻辑层采用 JsCore 线程运行 JS 脚本。</p>
 <p>为什么要这么设计呢？前面提到的管控和安全，为了解决这些问题，所以需要阻止开发者使用一些浏览器提供的，诸如跳转页面、操作 DOM、动态执行脚本的开放性接口。</p>
 <p>可以使用客户端系统的 JavaScript 引擎，iOS下的 JavaScriptCore 框架，安卓下腾讯 x5 内核提供的 JsCore 环境。通过提供一个沙箱环境来运行开发者的 JavaScript 代码来解决。这个沙箱环境只提供纯 JavaScript 的解释执行环境，没有任何浏览器相关接口。</p>
@@ -246,7 +246,7 @@
 <li>渲染层：界面渲染相关的任务全都在 WebView 线程里执行，通过逻辑层代码去控制渲染哪些界面。一个小程序存在多个界面，所以渲染层存在多个 WebView 线程</li>
 </ul>
 <h3 id="双线程通信"><a href="#双线程通信" class="headerlink" title="双线程通信"></a>双线程通信</h3><p>逻辑层和渲染层的通信会由 Native （微信客户端）做中转，逻辑层发送网络请求也经由 Native 转发，可以简单的理解为DOM 的更新通过简单的数据通信来实现<br>和Virtual DOM 类似，概是这么个过程：用JS对象模拟DOM树 -&gt; 比较两棵虚拟DOM树的差异 -&gt; 把差异应用到真正的DOM树上</p>
-<p><img src="http://p2amrgvlp.bkt.clouddn.com/miniprograme_message.png" alt="小程序双线程通信"></p>
+<p><img src="http://www.jsenjoy.com/images/blog/miniprograme_message.png" alt="小程序双线程通信"></p>
 <ol>
 <li>在渲染层把 WXML 转化成对应的 JS 对象。</li>
 <li>在逻辑层发生数据变更的时候，通过宿主环境提供的 setData 方法把数据从逻辑层传递到 Native，再转发到渲染层。</li>
