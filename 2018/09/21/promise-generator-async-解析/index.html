@@ -1,3 +1,328 @@
-<!DOCTYPE HTML><html lang="null"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="Cache-Control" content="no-siteapp"><meta http-equiv="Cache-Control" content="no-transform"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="apple-mobile-web-app-capable" content="yxc`s home"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no,email=no,adress=no"><meta name="browsermode" content="application"><meta name="screen-orientation" content="portrait"><link rel="dns-prefetch" href="http://yoursite.com"><meta name="robots" content="all"><meta name="google" content="all"><meta name="googlebot" content="all"><meta name="verify" content="all"><title>promise generator async 解析 | yxc`s home</title><link rel="alternate" href="/atom.xml" title="yxc`s home" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/bootstrap.min.css?rev=01db7b9bef05ad753ff3280573311707"><link rel="stylesheet" href="/css/font-awesome.min.css?rev=7d7c67beb5a3ece63f0a947be957099b"><link rel="stylesheet" href="/css/style.css?rev=e33f153d4b6d55d5271b6b10966c536e"><div class="hide"><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?" https://":" http://";document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"))</script></div></head><!--[if lte IE 8]><style>
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yxc`s home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>promise generator async 解析 | yxc`s home</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="yxc`s home" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
     html{ font-size: 1em }
-</style><![endif]--><!--[if lte IE 9]><div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div><![endif]--><body><header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"><div class="main-header-box"><a class="header-avatar" href="/" title="yxc | 于晓超"><img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block"></a><div class="branding"><img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block"></div></div></header><nav class="main-navigation"><div class="container"><div class="row"><div class="col-sm-12"><div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav"><span class="sr-only"></span><i class="fa fa-bars"></i></span> <a class="navbar-brand" href="http://yoursite.com">yxc`s home</a></div><div class="collapse navbar-collapse" id="main-menu"><ul class="menu"><li role="presentation" class="text-center"><a href="/"><i class="fa"></i> 首页</a></li><li role="presentation" class="text-center"><a href="/categories/前端/"><i class="fa"></i> 前端</a></li><li role="presentation" class="text-center"><a href="/categories/后端/"><i class="fa"></i> 后端</a></li><li role="presentation" class="text-center"><a href="/categories/工具/"><i class="fa"></i> 工具</a></li><li role="presentation" class="text-center"><a href="/categories/杂文/"><i class="fa"></i> 杂文</a></li><li role="presentation" class="text-center"><a href="/archives/"><i class="fa"></i> 时间轴</a></li></ul></div></div></div></div></nav><section class="content-wrap"><div class="container"><div class="row"><main class="col-md-8 main-content m-post"><p id="process"></p><article class="post"><div class="post-head"><h1 id="promise generator async 解析">promise generator async 解析</h1><div class="post-meta"><span class="categories-meta fa-wrap"><i class="fa fa-folder-open-o"></i> <a href="/categories/前端">前端</a></span><span class="fa-wrap"><i class="fa fa-tags"></i> <span class="tags-meta"><a href="/tags/js" title="js">js</a> <a href="/tags/es6" title="es6">es6</a></span></span><span class="fa-wrap"><i class="fa fa-clock-o"></i> <span class="date-meta">2018/09/21</span></span></div></div><div class="post-body post-content"><h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>解决的问题:回调地狱</p><h4 id="Promise规范"><a href="#Promise规范" class="headerlink" title="Promise规范:"></a>Promise规范:</h4><ol><li>promise有三种状态，等待（pending）、已完成（fulfilled/resolved）、已拒绝（rejected）.Promise的状态只能从“等待”转到“完成”或者“拒绝”，不能逆向转换，同时“完成”和“拒绝”也不能相互转换.</li><li>promise 必须提供一个 then方法以访问其当前值、终值和据因。promise.then(resolve, reject),resolve 和 reject都是可选参数。如果 resolve 或reject 不是函数，其必须被忽略.</li><li>then 方法必须返回一个 promise 对象.</li></ol><h3 id="使用"><a href="#使用" class="headerlink" title="使用:"></a>使用:</h3><ol><li>实例化promise对象需要传入函数(包含两个参数),resolve和reject,内部确定状态.resolve和reject函数可以传入参数在回调函数中使用.</li><li><p>resolve和reject都是函数,传入的参数在then的回调函数中接收.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    resolve(<span class="string">'好哈哈哈哈'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>then接收两个函数,分别对应resolve和reject状态的回调,函数中接收实例化时传入的参数.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="params">val</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//resolved</span></span><br><span class="line">&#125;,reason=&gt;&#123;</span><br><span class="line">  <span class="comment">//rejected</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>catch相当于.then(null, rejection)。当then中没有传入rejection时,错误会冒泡进入catch函数中,若传入了rejection,则错误会被rejection捕获,而且不会进入catch.此外,then中的回调函数中发生的错误只会在下一级的then中被捕获,不会影响该promise的状态.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'错误'</span>)</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">1</span>);<span class="comment">//此处捕获</span></span><br><span class="line"> &#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);</span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="comment">// 对比</span></span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'错误'</span>)</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,<span class="literal">null</span>).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);<span class="comment">//此处捕获</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="comment">// 错误示例</span></span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   resolve(<span class="string">'正常'</span>);</span><br><span class="line"> &#125;).then(<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'回调函数中错误'</span>)</span><br><span class="line"> &#125;,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">1</span>);</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);<span class="comment">//此处捕获,也可用catch</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></li><li><p>两者不等价的情况:<br>此时，catch捕获的并不是p1的错误，而是p2的错误</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p1().then(<span class="function"><span class="params">res</span>=&gt;</span>&#123; </span><br><span class="line">  <span class="keyword">return</span> p2()<span class="comment">//p2返回一个promise对象 </span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure></li><li><p>一个错误捕获的错误用例:<br>该函数调用中即使发生了错误依然会进入then中的resolve的回调函数,因为函数p1中实例化promise对象时已经调用了catch,若发生错误会进入catch中,此时会返回一个新的promise,因此即使发生错误依然会进入p1函数的then链中的resolve回调函数.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(val)&#123;</span><br><span class="line">      <span class="keyword">var</span> len = val.length;<span class="comment">//传入null会发生错误,进入catch捕获错误</span></span><br><span class="line">      resolve(len);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      reject();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line">p1(<span class="literal">null</span>).then(<span class="function">(<span class="params">len</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(len,<span class="string">'resolved'</span>);</span><br><span class="line">&#125;,()=&gt;&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'rejected'</span>);</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err,<span class="string">'catch'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>Promise回调链:<br>promise能够在回调函数里面使用 return 和 throw， 所以在then中可以return出一个promise对象或其他值，也可以throw出一个错误对象，但如果没有return，将默认返回 undefined，那么后面的then中的回调参数接收到的将是undefined.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    val==<span class="number">1</span>?resolve(<span class="number">1</span>):reject()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p2</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    val==<span class="number">2</span>?resolve(<span class="number">2</span>):reject();</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> promimse = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">          resolve(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">promimse.then(<span class="function"><span class="keyword">function</span>(<span class="params">data1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p1(data1)<span class="comment">//如果去掉return,则返回undefined而不是p1的返回值,会导致报错</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data2</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p2(data2+<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</span><br></pre></td></tr></table></figure></li></ol></div><div class="post-footer"><div>转载声明：转载请联系作者获得授权 © <a href="" target="_blank">yxcs | 于晓超</a></div><div></div></div></article><div class="article-nav prev-next-wrap clearfix"><a href="/2018/12/06/miniprogram-optimized/" class="pre-post btn btn-default" title="小程序相关优化"><i class="fa fa-angle-left fa-fw"></i> <span class="hidden-lg">上一篇</span> <span class="hidden-xs">小程序相关优化</span></a> <a href="/2018/09/20/北京旅游攻略/" class="next-post btn btn-default" title="北京旅游攻略"><span class="hidden-lg">下一篇</span> <span class="hidden-xs">北京旅游攻略</span><i class="fa fa-angle-right fa-fw"></i></a></div><div id="comments"><div id="vcomments" class="valine"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="/assets/valine.min.js"></script><script>new Valine({av:AV,el:"#vcomments",appId:"xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz",appKey:"erIpQac4azoCmgfBB7Dl9maa",placeholder:"说点什么吧",notify:!1,verify:!1,avatar:"mm",meta:"nick,mail".split(","),pageSize:"10",path:window.location.pathname,lang:"null".toLowerCase()})</script></div></main><aside id="article-toc" role="navigation" class="col-md-4"><div class="widget"><h3 class="title">内容列表</h3><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-text">Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise规范"><span class="toc-text">Promise规范:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用:</span></a></li></ol></div></aside></div></div></section><footer class="main-footer"><div class="container"><div class="row"></div></div></footer><a id="back-to-top" class="icon-btn hide"><i class="fa fa-chevron-up"></i></a><div class="copyright"><div class="container"><div class="row"><div class="col-sm-12"><span>Copyright &copy; 2017</span> | <span>Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a></span> | <span>Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a></span></div></div></div></div><script src="/js/app.js?rev=26a1b6fecd389c0121b7027a299aa7c0"></script></body></html>
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://www.jsenjoy.com/images/blog//banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='yxc | 于晓超'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">yxc`s home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/杂文/"><i class="fa "></i>杂文</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="promise generator async 解析">
+            
+	            promise generator async 解析
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端">
+            前端
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/js" title='js'>
+                        js
+                    </a>
+                
+                    <a href="/tags/es6" title='es6'>
+                        es6
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/21</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>解决的问题:回调地狱</p>
+<h4 id="Promise规范"><a href="#Promise规范" class="headerlink" title="Promise规范:"></a>Promise规范:</h4><ol>
+<li>promise有三种状态，等待（pending）、已完成（fulfilled/resolved）、已拒绝（rejected）.Promise的状态只能从“等待”转到“完成”或者“拒绝”，不能逆向转换，同时“完成”和“拒绝”也不能相互转换.</li>
+<li>promise 必须提供一个 then方法以访问其当前值、终值和据因。promise.then(resolve, reject),resolve 和 reject都是可选参数。如果 resolve 或reject 不是函数，其必须被忽略.</li>
+<li>then 方法必须返回一个 promise 对象.</li>
+</ol>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用:"></a>使用:</h3><ol>
+<li>实例化promise对象需要传入函数(包含两个参数),resolve和reject,内部确定状态.resolve和reject函数可以传入参数在回调函数中使用.</li>
+<li><p>resolve和reject都是函数,传入的参数在then的回调函数中接收.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    resolve(<span class="string">'好哈哈哈哈'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>then接收两个函数,分别对应resolve和reject状态的回调,函数中接收实例化时传入的参数.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="params">val</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//resolved</span></span><br><span class="line">&#125;,reason=&gt;&#123;</span><br><span class="line">  <span class="comment">//rejected</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>catch相当于.then(null, rejection)。当then中没有传入rejection时,错误会冒泡进入catch函数中,若传入了rejection,则错误会被rejection捕获,而且不会进入catch.此外,then中的回调函数中发生的错误只会在下一级的then中被捕获,不会影响该promise的状态.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'错误'</span>)</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">1</span>);<span class="comment">//此处捕获</span></span><br><span class="line"> &#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);</span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="comment">// 对比</span></span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'错误'</span>)</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,<span class="literal">null</span>).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);<span class="comment">//此处捕获</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="comment">// 错误示例</span></span><br><span class="line"> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   resolve(<span class="string">'正常'</span>);</span><br><span class="line"> &#125;).then(<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'回调函数中错误'</span>)</span><br><span class="line"> &#125;,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">1</span>);</span><br><span class="line"> &#125;).then(<span class="literal">null</span>,(err)=&gt;&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(err,<span class="number">2</span>);<span class="comment">//此处捕获,也可用catch</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>两者不等价的情况:<br> 此时，catch捕获的并不是p1的错误，而是p2的错误</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p1().then(<span class="function"><span class="params">res</span>=&gt;</span>&#123; </span><br><span class="line">  <span class="keyword">return</span> p2()<span class="comment">//p2返回一个promise对象 </span></span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span>=&gt;</span> <span class="built_in">console</span>.log(err))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个错误捕获的错误用例:<br> 该函数调用中即使发生了错误依然会进入then中的resolve的回调函数,因为函数p1中实例化promise对象时已经调用了catch,若发生错误会进入catch中,此时会返回一个新的promise,因此即使发生错误依然会进入p1函数的then链中的resolve回调函数.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(val)&#123;</span><br><span class="line">      <span class="keyword">var</span> len = val.length;<span class="comment">//传入null会发生错误,进入catch捕获错误</span></span><br><span class="line">      resolve(len);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      reject();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line">p1(<span class="literal">null</span>).then(<span class="function">(<span class="params">len</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(len,<span class="string">'resolved'</span>);</span><br><span class="line">&#125;,()=&gt;&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'rejected'</span>);</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err,<span class="string">'catch'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Promise回调链:<br> promise能够在回调函数里面使用 return 和 throw， 所以在then中可以return出一个promise对象或其他值，也可以throw出一个错误对象，但如果没有return，将默认返回 undefined，那么后面的then中的回调参数接收到的将是undefined.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p1</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    val==<span class="number">1</span>?resolve(<span class="number">1</span>):reject()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p2</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    val==<span class="number">2</span>?resolve(<span class="number">2</span>):reject();</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> promimse = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">          resolve(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">promimse.then(<span class="function"><span class="keyword">function</span>(<span class="params">data1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p1(data1)<span class="comment">//如果去掉return,则返回undefined而不是p1的返回值,会导致报错</span></span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data2</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> p2(data2+<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.then(<span class="function"><span class="params">res</span>=&gt;</span><span class="built_in">console</span>.log(res))</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请联系作者获得授权 © <a href="" target="_blank">yxcs | 于晓超</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/12/06/miniprogram-optimized/" class="pre-post btn btn-default" title='小程序相关优化'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">小程序相关优化</span>
+        </a>
+    
+    
+        <a href="/2018/09/20/北京旅游攻略/" class="next-post btn btn-default" title='北京旅游攻略'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">北京旅游攻略</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'null'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">内容列表</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-text">Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise规范"><span class="toc-text">Promise规范:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用:</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+
+</body>
+</html>
